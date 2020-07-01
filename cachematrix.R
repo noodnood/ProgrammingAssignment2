@@ -3,10 +3,10 @@
 
 ## Write a short comment describing this function
 ##following the templete, I changed x to be a matrix
-##makeCacheMatrix() sets the value of the matrix
-##gets the value of the matrix
-##sets the value of the inverse matrix
-##gets the value of the inverse matrix
+##set function sets the value of the matrix
+##get function gets the value of the matrix
+##setInv function sets the value of the inverse matrix
+##getInv function gets the value of the inverse matrix
 
 makeCacheMatrix <- function(x = matrix()){
   inv <- NULL
