@@ -2,17 +2,21 @@
 ## functions do
 
 ## Write a short comment describing this function
-##
+##following the templete, I changed x to be a matrix
+##makeCacheMatrix() sets the value of the matrix
+##gets the value of the matrix
+##sets the value of the inverse matrix
+##gets the value of the inverse matrix
 
 makeCacheMatrix <- function(x = matrix()){
-  output <- NULL
+  inv <- NULL
   set <- function(y){
     x <<- y
-    output <<- NULL
+    inv <<- NULL
   }
   get <- function(){x}
-  setInv <- function(inverse){output <<- inverse}
-  getInv <- function(){m}
+  setInv <- function(inverse){inv <<- inverse}
+  getInv <- function(){inv}
   list(set = set, get = get,
        setInv = setInv,
        getInv = getInv)
@@ -20,17 +24,19 @@ makeCacheMatrix <- function(x = matrix()){
 
 
 ## Write a short comment describing this function
+##cacheSolve() checks if the inverse has already been computed 
+##if it hasn't, it computes the inverse and sets the value of the inverse via setInv()
 
 cacheSolve <- function(x, ...) {
   ## Return a matrix that is the inverse of 'x'
-  output <- x$getInv()
-  if(!is.null(output)){
+  inv <- x$getInv()
+  if(!is.null(inv)){
     message("getting cached data")
-    return(output)
+    return(inv)
   }
   
   data <- x$get()
-  output <- solve(data, ...)
-  x$setInv(output)
-  output
+  inv <- solve(data, ...)
+  x$setInv(inv)
+  inv
 }
